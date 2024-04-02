@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Yangi post qo'shish{% endblock title %}
+{% block content %}
+
+  <h1>Yangi post qo'shish</h1>
+  <form class="" enctype="multipart/form-data" method="post">{% csrf_token %}
+    {{ form.media }}
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Title</span>
+      {{form.title}}
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Summary</span>
+      {{form.summary}}
+    </div>
+
+    <div class="input-group mb-3">
+      {{form.body}}
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Photo</span>
+      {{form.photo}}
+    </div>
+
+
+    <button style="width:100%" class="btn btn-outline-success" type="sumbit" name="button">Saqlash</button>
+  </form>
+{% endblock content %}

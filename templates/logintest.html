@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <h2>Siz ro'yhatdan mufaqqattiyatli o'tdingiz ✔</h2>
+    <h4>Siz endi bemalol bizning yangiliklarimizni ko'rishingiz mumkin</h4>
+    <h4>Endi manabu linkka kiring <a href="{% url 'logintest' %}">Home</a></h4>
+  {% endif %}
+{% endblock content %}

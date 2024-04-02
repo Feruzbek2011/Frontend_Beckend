@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Ro'yhatdan o'tish{% endblock title %}
+
+{% block content %}
+    <form method="POST" action="" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">{% csrf_token %}
+      <h2 class="w3-center"><b class="fy-green">Profilingiz o'zgardi</b><br><br></h2><hr>
+
+      <h4 class="w3-center"><b class="fy-red"><strong class="fy-black"> Usernamemigiz: </strong> {{user.username}}</b></h4><hr>
+      <h4 class="w3-center"><b class="fy-red"><strong class="fy-black"> Ismingiz: </strong> {{user.first_name}}</b></h4><hr>
+      <h4 class="w3-center"><b class="fy-red"><strong class="fy-black"> Familiyangiz: </strong> {{user.last_name}}</b></h4><hr>
+      <h4 class="w3-center"><b class="fy-red"><strong class="fy-black"> Elektron pochtangiz: </strong> {{user.email}}</b></h4><hr>
+      <h4 class="w3-center"><b class="fy-red"><strong class="fy-black"> Yoshingiz: </strong> {{user.age}}</b></h4><hr>
+
+
+{% endblock content %}

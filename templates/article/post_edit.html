@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Post edit{% endblock title %}
+{% block content %}
+  <h1>Tahrirlash</h1>
+  <form class="" enctype="multipart/form-data" method="POST">{% csrf_token %}
+    {{ form.media }}
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Title</span>
+      {{form.title}}
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Summary</span>
+      {{form.summary}}
+    </div>
+
+    <div class="input-group mb-3">
+      {{form.body}}
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Photo</span>
+      {{form.photo}}
+    </div>
+
+
+    <button style="width:100%" class="btn btn-outline-warning" type="sumbit" name="button">O'zgartirish</button>
+  </form>
+  </form>
+{% endblock content %}

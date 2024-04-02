@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Post detail{% endblock title %}
+{% block content %}
+  <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+    <h2>{{object.title}}</h2>
+    {% if object.photo %}
+      <img class="img-fluid" src="{{object.photo.url}}" alt="{{object.title}}">
+    {% endif %} <hr>
+    <h5>{{object.body | safe}}</h5><br>
+    <p><strong>muallif:  </strong> {{object.author}}</p>
+    <p><strong>sana: </strong> {{object.date}}</p>
+    <hr>
+
+      <h2><center>Izohlar</center></h2>
+      {% for comment in post.comments.all %}
+        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">{{ comment.name }}</div>
+        <div class="card">
+          <div class="card-body">
+          {{ comment.comment | safe }}
+          <p><strong>muallif:</strong> {{comment.author}} <br> <strong> sana:</strong> {{comment.date_added}} </p>
+          </div>
+        </div>
+        <br>
+        {% if user.is_superuser or comment.author == user %}
+
+          <a href="{% url 'comment_edit' comment.pk %}"><button class="btn btn-outline-warning" type="button" name="button"> Tahrirlash </button></a>
+          <a href="{% url 'comment_delete' comment.pk %}"><button class="btn btn-outline-danger" type="button" name="button"> O'chirish </button></a>
+
+        {% endif %}
+        <br><hr><br>
+      {% endfor %}
+
+    <hr>
+    <a href="{% url 'comment_create' post.pk %}"><button class="btn btn-outline-success" type="button" name="button"> Comment qo'shish </button></a>
+    {% if user.is_superuser or comment.author == user %}
+      <a href="{% url 'post_edit' post.pk %}"><button class="btn btn-outline-warning" type="button" name="button"> Tahrirlash </button></a>
+      <a href="{% url 'post_delete' post.pk %}"><button class="btn btn-outline-danger" type="button" name="button"> O'chirish </button></a>
+   {% endif %}
+    <a href="{% url 'post_list' %}"><button class="btn btn-outline-primary" type="button" name="button"> Barcha postlar </button></a>
+  </div>
+
+{% endblock content %}

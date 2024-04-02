@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Ro'yhatdan o'tish{% endblock title %}
+
+{% block content %}
+    <form method="POST" action="" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">{% csrf_token %}
+      <h2 class="w3-center">Ro'yhatdan o'tish</h2>
+
+      <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+          <div class="w3-rest">
+            <input class="w3-input w3-border" name="username" type="text" placeholder="Usernamemigizni kiriting">
+          </div>
+      </div>
+
+      <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+          <div class="w3-rest">
+
+            <input class="w3-input w3-border" name="first" type="text" placeholder="Ismingizni kiriting">
+          </div>
+      </div>
+
+      <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+          <div class="w3-rest">
+
+            <input class="w3-input w3-border" name="last" type="text" placeholder="Familiyangiz kiriting">
+          </div>
+      </div>
+
+      <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+          <div class="w3-rest">
+              <input name="email" type="email" class="w3-input w3-border" placeholder="Email pochtangizni kiriting" aria-label="email" aria-describedby="basic-addon1">
+          </div>
+      </div>
+
+
+
+      <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+          <div class="w3-rest">
+
+            <input class="w3-input w3-border" name="age" type="number" placeholder="Yoshingizni kiriting">
+          </div>
+      </div>
+
+      <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+          <div class="w3-rest">
+<!--  -->
+            <input class="w3-input w3-border" name="password1" type="password" placeholder="Parolingizni kiriting">
+          </div>
+      </div>
+
+      <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+          <div class="w3-rest">
+
+            <input class="w3-input w3-border" name="password2" type="password" placeholder="Parolingizni takroran kiriting">
+          </div>
+      </div>
+
+      <div class="">
+        <button class="btn btn-outline-primary" style="width:100%" >Ro'yhatdan o'tish</button>
+      </div>
+    </form>
+{% endblock content %}

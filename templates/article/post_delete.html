@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Post delete{% endblock title %}
+{% block content %}
+  <h1>Postni o'chirish</h1>
+  <form class="" action="" method="post">{% csrf_token %}
+    <h2>{{ post.title }} maqolasini o'chiraymi?</h2>
+    <button style='width70%' class="btn btn-outline-danger" type="sumbit" name="button">O'chirish</button>
+  </form>
+{% endblock content %}

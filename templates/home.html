@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bosh sahifa{% endblock title %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <footer>
+      <hr>
+      <center class="w3-xxxlarge w3-animate-bottom">
+      <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+        <div class="fy-green">
+          <h2>Assalomu-alaykum {{ user.last_name | title }} {{ user.first_name | title }}! </h2>
+          <h3>Bizning sahifamizga hush kelibsiz!</h3>
+        </div>
+        <hr>
+        <h5>
+          Siz Yusufjonov Feruzbek tomonida yaratilgan website dasiz.
+          Bu sahifada yangilik va xabarlarni bemalol va bupul o'qishingz mumkin.
+        </h5>
+         <h4><a href="{% url 'post_list' %}">Xabarlarni o'qish</a></h4>
+         <hr>
+         <h4>Dasturchi: Yusufjonov Feruzbek</h4>
+      </div>
+      </center>
+      <hr>
+          <!-- <button style="width:30%" class="btn btn-outline-danger" type="submit">chiqish</button> -->
+
+
+
+    </footer>
+  {% else %}
+    <hr>
+    <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+      <h4>Saytga kirmagansiz</h4>
+      <h5>
+        Ro'yhatdan o'ta olmayapsizmi unda manabu linkga kiring-->
+        <a href="{% url 'yoriqnoma' %}">ro'yhatdan o'tish yo'riqnoma</a><--bu sizga yordam beradi degan umiddamiz.
+      </h5>
+      <hr>
+      <h4>
+        <a href="{% url 'login' %}">Kirish</a> |
+        <a href="{% url 'signup' %}">Ro'yhatdan o'tish</a>
+      </h4>
+    </div>
+    <hr>
+  {% endif %}
+{% endblock content %}

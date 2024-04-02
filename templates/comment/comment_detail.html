@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Post detail{% endblock title %}
+{% block content %}
+  <hr>
+  <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+    <h2><center class="fy-green">Izohingiz tahrirlandi</center></h2> <br>
+    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">{{ object.name }}</div>
+    <div class="card">
+      <div class="card-body">
+      {{ object.comment | safe }}
+      <p><strong>muallif:</strong> {{object.author}} <br> <strong> sana:</strong> {{object.date_added}} </p>
+      </div>
+    </div> <br>
+    <a href="{% url 'post_list' %}"><button class="btn btn-outline-success" type="button" name="button"> Barcha postlar </button></a>
+  </div>
+    <hr>
+{% endblock content %}
