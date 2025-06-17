@@ -15,7 +15,6 @@ from environs import Env
 import os
 env = Env()
 env.read_env()
-print("DEBUG:", DEBUG)
 print("SECRET_KEY:", SECRET_KEY)
 print("DATABASE_URL:", env.str("DATABASE_URL"))
 
@@ -31,7 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
+print("DEBUG:", DEBUG)  # bu qatordan keyin qo'yilsin
 
 ALLOWED_HOSTS = ['127.0.0.1', 'article-word.onrender.com']
 
