@@ -15,10 +15,6 @@ from environs import Env
 import os
 env = Env()
 env.read_env()
-print("SECRET_KEY:", SECRET_KEY)
-print("DATABASE_URL:", env.str("DATABASE_URL"))
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
