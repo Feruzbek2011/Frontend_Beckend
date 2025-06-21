@@ -34,14 +34,20 @@ class PostDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
 class PostCreateView(UserPassesTestMixin, LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
-    template_name='article/post_create.html'
+    template_name = 'article/post_create.html'
+    success_url = reverse_lazy('home')  # tugagach qayerga yuboriladi
+
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
     def test_func(self):
         return self.request.user.is_superuser
-    # fields = ('title', 'summary', 'body', 'photo', 'author')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['UPLOADCARE_PUBLIC_KEY'] = settings.UPLOADCARE_PUBLIC_KEY
+        return context
 # COMMENT
 
 class CommentDetailView(LoginRequiredMixin, DetailView):
