@@ -9,7 +9,7 @@ class Post(models.Model):
         title = models.CharField(max_length=200)
         summary = models.CharField(max_length=250, blank=True)
         body = RichTextField()
-        photo = models.ImageField(upload_to='images/', blank=True, null=True)
+        photo = models.CharField(max_length=255, blank=True, null=True)
         date = models.DateField(auto_now_add=True)
         author = models.ForeignKey(
             get_user_model(),
