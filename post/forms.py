@@ -1,7 +1,5 @@
 from django import forms
 from .models import Post, Comments
-
-
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -10,22 +8,23 @@ class PostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={
                 'class': 'form-control border-success',
-                'placeholder': 'Title kiriting'
+                'aria-describedby': "basic-addon1"
             }),
-            'summary': forms.TextInput(attrs={
+            'summary': forms.Textarea(attrs={
                 'class': 'form-control border-success',
-                'placeholder': 'Qisqacha mazmuni'
+                'aria-describedby': "basic-addon1"
             }),
             'body': forms.Textarea(attrs={
                 'class': 'form-control border-success',
-                'rows': 6,
-                'placeholder': 'Maqola matni'
+                'aria-describedby': "basic-addon1"
             }),
-            'photo': forms.ClearableFileInput(attrs={
-                'class': 'form-control border-success'
+            'photo': forms.TextInput(attrs={
+                'role': 'uploadcare-uploader',
+                'data-clearable': 'true',
+                'class': 'form-control border-success',
+                'id': "uploadcare-photo"
             }),
         }
-
 
 class PostEditForm(forms.ModelForm):
     class Meta:
