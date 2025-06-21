@@ -8,7 +8,10 @@ env.read_env()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env.str("SECRET_KEY")
-
+UPLOADCARE = {
+    'pub_key': env.str('d75688cec1da457dd62d'),
+    'secret': env.str('74b673efa2238c6be100'),
+}
 DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = [
